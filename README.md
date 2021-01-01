@@ -16,7 +16,11 @@ npm i -D easy-css-classes
 import React from "react";
 import { cssClasses } from "easy-css-classes";
 
-export example = () => <div className={cssClasses("my-class", "my-class-2")}>
+export example = () => (
+  <div className={cssClasses("my-class", "my-class-2")}>
+    Example
+  </div>
+);
 ```
 
 # CSS Modules
@@ -28,7 +32,11 @@ import styles from "./styles.css";
 
 const cssModuleClass = cssModule(styles);
 
-export example = () => <div className={cssModuleClass("my-class", "my-class-2")}>
+export example = () => (
+  <div className={cssModuleClass("my-class", "my-class-2")}>
+    Example
+  </div>
+);
 ```
 
 # Methods

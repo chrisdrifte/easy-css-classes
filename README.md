@@ -1,6 +1,6 @@
-# Easy Css Classes
+# Easy CSS Classes
 
-Dynamic css classes in javascript often involves ugly string manipulations, and the odd accidental "undefined" class name.
+Dynamic CSS classes in javascript often involves ugly string manipulations, and the odd accidental "undefined" class name.
 
 There is an easier way.
 
@@ -47,7 +47,7 @@ const classes = `${cssClasses("class-1").plus("class-2")}`;
 const classes = `${cssClasses("class-1 class-2").minus("class-2")}`;
 ```
 
-## Advanced usage
+# Advanced usage
 
 Use `Strings`, `Sets`, `Arrays` and even `Objects` as arguments. When an `Object` is provided, keys with truthy values are used as class names.
 

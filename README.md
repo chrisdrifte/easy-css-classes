@@ -92,7 +92,7 @@ import styles from "./styles.css";
 const moduleClassNames = useCssModuleClassNames(styles);
 
 export example = () => (
-  <div className={...moduleClassNames("my-class", "my-class-2")}>
+  <div {...moduleClassNames("my-class", "my-class-2")}>
     Example
   </div>
 );

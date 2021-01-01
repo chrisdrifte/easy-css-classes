@@ -30,10 +30,10 @@ import React from "react";
 import { cssModule } from "easy-css-classes";
 import styles from "./styles.css";
 
-const cssModuleClass = cssModule(styles);
+const cssModuleClasses = cssModule(styles);
 
 export example = () => (
-  <div className={cssModuleClass("my-class", "my-class-2")}>
+  <div className={cssModuleClasses("my-class", "my-class-2")}>
     Example
   </div>
 );

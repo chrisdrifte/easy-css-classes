@@ -27,13 +27,13 @@ export example = () => (
 
 ```javascript
 import React from "react";
-import { cssModule } from "easy-css-classes";
+import { useCssModule } from "easy-css-classes";
 import styles from "./styles.css";
 
-const cssModuleClasses = cssModule(styles);
+const moduleClasses = useCssModule(styles);
 
 export example = () => (
-  <div className={cssModuleClasses("my-class", "my-class-2")}>
+  <div className={moduleClasses("my-class", "my-class-2")}>
     Example
   </div>
 );
@@ -57,6 +57,8 @@ const classes = `${cssClasses("class-1 class-2").minus("class-2")}`;
 
 # Advanced usage
 
+## Argument types
+
 Use `Strings`, `Sets`, `Arrays` and even `Objects` as arguments. When an `Object` is provided, keys with truthy values are used as class names.
 
 ```javascript
@@ -65,4 +67,33 @@ const classes = `${cssClasses({
   "class-1": true,
   "class-2": false,
 })}`;
+```
+
+## Shorthand syntax
+
+For convience, a shorthand syntax is provided for JSX:
+
+```javascript
+import React from "react";
+import { classNames } from "easy-css-classes";
+
+export example = () => (
+  <div {...classNames("my-class", "my-class-2")}>
+    Example
+  </div>
+);
+```
+
+```javascript
+import React from "react";
+import { useCssModuleClassNames } from "easy-css-classes";
+import styles from "./styles.css";
+
+const moduleClassNames = useCssModuleClassNames(styles);
+
+export example = () => (
+  <div className={...moduleClassNames("my-class", "my-class-2")}>
+    Example
+  </div>
+);
 ```

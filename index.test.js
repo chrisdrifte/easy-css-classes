@@ -1,4 +1,9 @@
-const { cssClasses, cssModule } = require("./index");
+const {
+  cssClasses,
+  useCssModule,
+  classNames,
+  useCssModuleClassNames,
+} = require("./index");
 
 describe("cssClasses", () => {
   describe("processArgs()", () => {
@@ -112,6 +117,14 @@ describe("cssClasses", () => {
       });
     });
   });
+
+  describe("classNames", () => {
+    it("should return classes as value of 'classname' in an object", () => {
+      expect(cssClasses("expected").classNames()).toEqual({
+        className: "expected",
+      });
+    });
+  });
 });
 
 describe("cssModule", () => {
@@ -119,7 +132,7 @@ describe("cssModule", () => {
     let cssModuleClasses;
 
     describe("with single argument", () => {
-      cssModuleClasses = cssModule({
+      cssModuleClasses = useCssModule({
         "css-module-key": "expected",
       });
 
@@ -131,7 +144,7 @@ describe("cssModule", () => {
     });
 
     describe("with multiple arguments", () => {
-      cssModuleClasses = cssModule(
+      cssModuleClasses = useCssModule(
         {
           "css-module-key": "expected",
         },
@@ -145,6 +158,25 @@ describe("cssModule", () => {
           cssModuleClasses("css-module-key css-module-key2").toString()
         ).toEqual("expected expected2");
       });
+    });
+  });
+});
+
+describe("classNames", () => {
+  it("should provide an alternative to cssClasses for use with the spread operator", () => {
+    expect(classNames("expected")).toEqual({
+      className: "expected",
+    });
+  });
+});
+
+describe("moduleClassNames", () => {
+  it("should provide an alternative to cssClasses for use with the spread operator", () => {
+    const moduleClassNames = useCssModuleClassNames({
+      "css-module-key": "expected",
+    });
+    expect(moduleClassNames("css-module-key")).toEqual({
+      className: "expected",
     });
   });
 });

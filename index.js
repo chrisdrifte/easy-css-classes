@@ -82,22 +82,39 @@ class CssClasses {
   }
 }
 
-class CssModule extends CssClasses {
-  constructor(styles, ...addClasses) {
-    super(...addClasses);
-    this._styles = styles;
-  }
+/**
+ * Create a CssClasses instance
+ */
+const cssClasses = (...addClasses) => new CssClasses(...addClasses);
 
-  toString() {
-    return Array.from(this._clsses)
-      .map((key) => this._styles[key])
-      .join(` `)
-      .trim();
-  }
-}
+/**
+ * Use CssClasses instance with a css module
+ */
+const useCssModule = (...styles) => (...addClasses) =>
+  cssClasses(...addClasses).use(...styles);
 
+/**
+ * Create a CssClasses instance
+ * suitable for use in JSX with object spread operator
+ */
+const classNames = (...addClasses) => ({
+  className: cssClasses(...addClasses).toString(),
+});
+
+/**
+ * Create a CssClasses instance with a css module
+ * suitable for use in JSX with object spread operator
+ */
+const useCssModuleClassNames = (...styles) => (...addClasses) => ({
+  className: useCssModule(...styles)(...addClasses).toString(),
+});
+
+/**
+ * Export
+ */
 module.exports = {
-  cssClasses: (...addClasses) => new CssClasses(...addClasses),
-  cssModule: (...styles) => (...addClasses) =>
-    new CssClasses(...addClasses).use(...styles),
+  cssClasses,
+  useCssModule,
+  classNames,
+  useCssModuleClassNames,
 };

@@ -1,6 +1,6 @@
 {
   "name": "easy-css-classes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easier dynamic css class handling",
   "main": "index.js",
   "scripts": {

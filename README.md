@@ -77,10 +77,8 @@ For convience, a shorthand syntax is provided for JSX:
 import React from "react";
 import { classNames } from "easy-css-classes";
 
-export example = () => (
-  <div {...classNames("my-class", "my-class-2")}>
-    Example
-  </div>
+export const example = () => (
+  <div {...classNames("my-class", "my-class-2")}>Example</div>
 );
 ```
 
@@ -91,9 +89,7 @@ import styles from "./styles.css";
 
 const moduleClassNames = useCssModuleClassNames(styles);
 
-export example = () => (
-  <div {...moduleClassNames("my-class", "my-class-2")}>
-    Example
-  </div>
+export const example = () => (
+  <div {...moduleClassNames("my-class", "my-class-2")}>Example</div>
 );
 ```
